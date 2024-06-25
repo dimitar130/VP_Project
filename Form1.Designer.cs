@@ -34,11 +34,6 @@ namespace VP_Ptoject
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btn_Start = new System.Windows.Forms.Button();
             this.lbl_Time = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.easy_Difficulty = new System.Windows.Forms.ToolStripMenuItem();
-            this.normal_Difficulty = new System.Windows.Forms.ToolStripMenuItem();
-            this.hard_Difficulty = new System.Windows.Forms.ToolStripMenuItem();
             this.lbl_Word = new System.Windows.Forms.Label();
             this.tb_Attempt = new System.Windows.Forms.TextBox();
             this.btn_Ok = new System.Windows.Forms.Button();
@@ -75,8 +70,14 @@ namespace VP_Ptoject
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.footballCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.artCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.countryCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.difficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
+            this.easyDifficulty = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalDifficulty = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardDifficulty = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,59 +107,6 @@ namespace VP_Ptoject
             this.lbl_Time.Name = "lbl_Time";
             this.lbl_Time.Size = new System.Drawing.Size(0, 39);
             this.lbl_Time.TabIndex = 1;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(349, 196);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(97, 35);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.easy_Difficulty,
-            this.normal_Difficulty,
-            this.hard_Difficulty});
-            this.toolStripDropDownButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.White;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.ShowDropDownArrow = false;
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(94, 32);
-            this.toolStripDropDownButton1.Text = "Difficulty";
-            // 
-            // easy_Difficulty
-            // 
-            this.easy_Difficulty.BackColor = System.Drawing.SystemColors.Highlight;
-            this.easy_Difficulty.Name = "easy_Difficulty";
-            this.easy_Difficulty.Size = new System.Drawing.Size(224, 32);
-            this.easy_Difficulty.Text = "Easy";
-            this.easy_Difficulty.Click += new System.EventHandler(this.easy_Difficulty_Click);
-            // 
-            // normal_Difficulty
-            // 
-            this.normal_Difficulty.BackColor = System.Drawing.Color.Yellow;
-            this.normal_Difficulty.Name = "normal_Difficulty";
-            this.normal_Difficulty.Size = new System.Drawing.Size(224, 32);
-            this.normal_Difficulty.Text = "Normal";
-            this.normal_Difficulty.Click += new System.EventHandler(this.normal_Difficulty_Click);
-            // 
-            // hard_Difficulty
-            // 
-            this.hard_Difficulty.BackColor = System.Drawing.Color.Red;
-            this.hard_Difficulty.Name = "hard_Difficulty";
-            this.hard_Difficulty.Size = new System.Drawing.Size(224, 32);
-            this.hard_Difficulty.Text = "Hard";
             // 
             // lbl_Word
             // 
@@ -219,7 +167,7 @@ namespace VP_Ptoject
             this.difficultyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(817, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(817, 28);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -245,7 +193,7 @@ namespace VP_Ptoject
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.newToolStripMenuItem.Text = "&New";
             // 
             // openToolStripMenuItem
@@ -253,39 +201,39 @@ namespace VP_Ptoject
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.openToolStripMenuItem.Text = "&Open";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(174, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -293,18 +241,18 @@ namespace VP_Ptoject
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // editToolStripMenuItem
@@ -325,26 +273,26 @@ namespace VP_Ptoject
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(151, 6);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.cutToolStripMenuItem.Text = "Cu&t";
             // 
             // copyToolStripMenuItem
@@ -352,7 +300,7 @@ namespace VP_Ptoject
             this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.copyToolStripMenuItem.Text = "&Copy";
             // 
             // pasteToolStripMenuItem
@@ -360,18 +308,18 @@ namespace VP_Ptoject
             this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.pasteToolStripMenuItem.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(151, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
@@ -386,13 +334,13 @@ namespace VP_Ptoject
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -410,63 +358,124 @@ namespace VP_Ptoject
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(147, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // categoriesToolStripMenuItem
             // 
+            this.categoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.footballCategory,
+            this.artCategory,
+            this.countryCategory});
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
             this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
-            this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Text = "&Categories";
+            // 
+            // footballCategory
+            // 
+            this.footballCategory.Checked = true;
+            this.footballCategory.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.footballCategory.Name = "footballCategory";
+            this.footballCategory.Size = new System.Drawing.Size(224, 26);
+            this.footballCategory.Text = "Football";
+            this.footballCategory.Click += new System.EventHandler(this.footballCategory_Click);
+            // 
+            // artCategory
+            // 
+            this.artCategory.Name = "artCategory";
+            this.artCategory.Size = new System.Drawing.Size(224, 26);
+            this.artCategory.Text = "Art";
+            this.artCategory.Click += new System.EventHandler(this.artCategory_Click);
+            // 
+            // countryCategory
+            // 
+            this.countryCategory.Name = "countryCategory";
+            this.countryCategory.Size = new System.Drawing.Size(224, 26);
+            this.countryCategory.Text = "Country";
+            this.countryCategory.Click += new System.EventHandler(this.countryCategory_Click);
             // 
             // difficultyToolStripMenuItem
             // 
+            this.difficultyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.easyDifficulty,
+            this.normalDifficulty,
+            this.hardDifficulty});
             this.difficultyToolStripMenuItem.Name = "difficultyToolStripMenuItem";
-            this.difficultyToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
-            this.difficultyToolStripMenuItem.Text = "Difficulty";
+            this.difficultyToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.difficultyToolStripMenuItem.Text = "&Difficulty";
+            // 
+            // easyDifficulty
+            // 
+            this.easyDifficulty.Checked = true;
+            this.easyDifficulty.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.easyDifficulty.Name = "easyDifficulty";
+            this.easyDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.easyDifficulty.Text = "Easy";
+            this.easyDifficulty.Click += new System.EventHandler(this.easyDifficulty_Click);
+            // 
+            // normalDifficulty
+            // 
+            this.normalDifficulty.Name = "normalDifficulty";
+            this.normalDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.normalDifficulty.Text = "Normal";
+            this.normalDifficulty.Click += new System.EventHandler(this.normalDifficulty_Click);
+            // 
+            // hardDifficulty
+            // 
+            this.hardDifficulty.Name = "hardDifficulty";
+            this.hardDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.hardDifficulty.Text = "Hard";
+            this.hardDifficulty.Click += new System.EventHandler(this.hardDifficulty_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(241, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(335, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Before you play choose your category and difficulty ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_AllLeters);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.tb_Attempt);
             this.Controls.Add(this.lbl_Word);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lbl_Time);
             this.Controls.Add(this.btn_Start);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -479,11 +488,6 @@ namespace VP_Ptoject
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btn_Start;
         private System.Windows.Forms.Label lbl_Time;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem easy_Difficulty;
-        private System.Windows.Forms.ToolStripMenuItem normal_Difficulty;
-        private System.Windows.Forms.ToolStripMenuItem hard_Difficulty;
         private System.Windows.Forms.Label lbl_Word;
         private System.Windows.Forms.TextBox tb_Attempt;
         private System.Windows.Forms.Button btn_Ok;
@@ -521,6 +525,13 @@ namespace VP_Ptoject
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem difficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem footballCategory;
+        private System.Windows.Forms.ToolStripMenuItem artCategory;
+        private System.Windows.Forms.ToolStripMenuItem countryCategory;
+        private System.Windows.Forms.ToolStripMenuItem easyDifficulty;
+        private System.Windows.Forms.ToolStripMenuItem normalDifficulty;
+        private System.Windows.Forms.ToolStripMenuItem hardDifficulty;
+        private System.Windows.Forms.Label label1;
     }
 }
 

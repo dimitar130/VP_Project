@@ -9,8 +9,8 @@ namespace VP_Ptoject
     public class HangmanWord
     {
         public string Word { get; set; }
-        public HashSet<char> wordLetters { get; set; } = new HashSet<char>();
-        public HashSet<char> AttemptedLetters { get; set; } = new HashSet<char>();
+        public HashSet<char> wordLetters { get; set; }
+        public HashSet<char> AttemptedLetters { get; set; }
         public int Misses { get; set; } = 0;
         public int[] MaxNumOfMiss { get; set; } = { 3, 5, 7 };
 
@@ -19,6 +19,8 @@ namespace VP_Ptoject
         public HangmanWord(string word)
         {
             Word = word;
+            wordLetters = new HashSet<char>();
+            AttemptedLetters = new HashSet<char>();
 
             foreach (char letter in Word.ToCharArray())
             {
