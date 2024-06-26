@@ -67,8 +67,8 @@ namespace VP_Ptoject
             foreach(char letter in Word)
             {
                 char tmp_letter = Char.ToLower(letter);
-                if (wordLetters.Contains(tmp_letter)) sb.Append(tmp_letter);
-                else sb.Append("_");
+                if (wordLetters.Contains(tmp_letter)) sb.Append("_");
+                else sb.Append(tmp_letter);
 
                 sb.Append(" ");
             }

@@ -62,6 +62,8 @@ namespace VP_Ptoject
                 }
                 lbl_Word.Text = hangmanWord.UpdateWordState();
                 lbl_AllLeters.Text = hangmanWord.UpdateAlphabet();
+                lbl_Attempts.Text = "Attempts: " + (hangmanWord.MaxFailedAttempts-hangmanWord.Misses);
+                if ((hangmanWord.MaxFailedAttempts - hangmanWord.Misses) < 3) lbl_Attempts.ForeColor = Color.Red;
             }
             else MessageBox.Show("Put a letter in the text box!");
         }
@@ -91,6 +93,7 @@ namespace VP_Ptoject
         {
             easyDifficulty.Checked = true;
             hangmanWord.MaxFailedAttempts = hangmanWord.MaxNumOfMiss[2];
+            lbl_Attempts.Text = "Attempts: " + hangmanWord.MaxFailedAttempts;
             normalDifficulty.Checked = hardDifficulty.Checked = false;
         }
 
@@ -99,6 +102,8 @@ namespace VP_Ptoject
             easyDifficulty.Checked = hardDifficulty.Checked = false;
             normalDifficulty.Checked = true;
             hangmanWord.MaxFailedAttempts = hangmanWord.MaxNumOfMiss[1];
+            lbl_Attempts.Text = "Attempts: " + hangmanWord.MaxFailedAttempts;
+
 
         }
 
@@ -107,6 +112,8 @@ namespace VP_Ptoject
             easyDifficulty.Checked = normalDifficulty.Checked = false;
             hardDifficulty.Checked = true;
             hangmanWord.MaxFailedAttempts = hangmanWord.MaxNumOfMiss[0];
+            lbl_Attempts.Text = "Attempts: " + hangmanWord.MaxFailedAttempts;
+
 
         }
     }

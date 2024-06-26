@@ -78,6 +78,7 @@ namespace VP_Ptoject
             this.normalDifficulty = new System.Windows.Forms.ToolStripMenuItem();
             this.hardDifficulty = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Attempts = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -399,21 +400,21 @@ namespace VP_Ptoject
             this.footballCategory.Checked = true;
             this.footballCategory.CheckState = System.Windows.Forms.CheckState.Checked;
             this.footballCategory.Name = "footballCategory";
-            this.footballCategory.Size = new System.Drawing.Size(224, 26);
+            this.footballCategory.Size = new System.Drawing.Size(147, 26);
             this.footballCategory.Text = "Football";
             this.footballCategory.Click += new System.EventHandler(this.footballCategory_Click);
             // 
             // artCategory
             // 
             this.artCategory.Name = "artCategory";
-            this.artCategory.Size = new System.Drawing.Size(224, 26);
+            this.artCategory.Size = new System.Drawing.Size(147, 26);
             this.artCategory.Text = "Art";
             this.artCategory.Click += new System.EventHandler(this.artCategory_Click);
             // 
             // countryCategory
             // 
             this.countryCategory.Name = "countryCategory";
-            this.countryCategory.Size = new System.Drawing.Size(224, 26);
+            this.countryCategory.Size = new System.Drawing.Size(147, 26);
             this.countryCategory.Text = "Country";
             this.countryCategory.Click += new System.EventHandler(this.countryCategory_Click);
             // 
@@ -432,21 +433,21 @@ namespace VP_Ptoject
             this.easyDifficulty.Checked = true;
             this.easyDifficulty.CheckState = System.Windows.Forms.CheckState.Checked;
             this.easyDifficulty.Name = "easyDifficulty";
-            this.easyDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.easyDifficulty.Size = new System.Drawing.Size(142, 26);
             this.easyDifficulty.Text = "Easy";
             this.easyDifficulty.Click += new System.EventHandler(this.easyDifficulty_Click);
             // 
             // normalDifficulty
             // 
             this.normalDifficulty.Name = "normalDifficulty";
-            this.normalDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.normalDifficulty.Size = new System.Drawing.Size(142, 26);
             this.normalDifficulty.Text = "Normal";
             this.normalDifficulty.Click += new System.EventHandler(this.normalDifficulty_Click);
             // 
             // hardDifficulty
             // 
             this.hardDifficulty.Name = "hardDifficulty";
-            this.hardDifficulty.Size = new System.Drawing.Size(224, 26);
+            this.hardDifficulty.Size = new System.Drawing.Size(142, 26);
             this.hardDifficulty.Text = "Hard";
             this.hardDifficulty.Click += new System.EventHandler(this.hardDifficulty_Click);
             // 
@@ -459,11 +460,22 @@ namespace VP_Ptoject
             this.label1.TabIndex = 9;
             this.label1.Text = "Before you play choose your category and difficulty ";
             // 
+            // lbl_Attempts
+            // 
+            this.lbl_Attempts.AutoSize = true;
+            this.lbl_Attempts.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Attempts.Location = new System.Drawing.Point(595, 378);
+            this.lbl_Attempts.Name = "lbl_Attempts";
+            this.lbl_Attempts.Size = new System.Drawing.Size(178, 39);
+            this.lbl_Attempts.TabIndex = 10;
+            this.lbl_Attempts.Text = "Attempts:7";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 450);
+            this.Controls.Add(this.lbl_Attempts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_AllLeters);
             this.Controls.Add(this.label2);
@@ -532,6 +544,7 @@ namespace VP_Ptoject
         private System.Windows.Forms.ToolStripMenuItem normalDifficulty;
         private System.Windows.Forms.ToolStripMenuItem hardDifficulty;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Attempts;
     }
 }
 
