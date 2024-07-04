@@ -129,6 +129,7 @@ namespace VP_Ptoject
             // 
             // btn_Ok
             // 
+            this.btn_Ok.Enabled = false;
             this.btn_Ok.Location = new System.Drawing.Point(116, 156);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(75, 50);
@@ -456,7 +457,7 @@ namespace VP_Ptoject
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(241, 189);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(335, 17);
+            this.label1.Size = new System.Drawing.Size(313, 16);
             this.label1.TabIndex = 9;
             this.label1.Text = "Before you play choose your category and difficulty ";
             // 
@@ -488,6 +489,8 @@ namespace VP_Ptoject
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
