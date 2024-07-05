@@ -81,6 +81,7 @@ namespace VP_Ptoject
                 Invalidate();
                 formatTime();
                 lbl_Time.ForeColor = Color.Black;
+                lbl_Attempts.ForeColor = Color.Black;
                 lbl_Attempts.Text = "Attempts: " + (hangmanWord.MaxFailedAttempts - hangmanWord.Misses);
 
             }
