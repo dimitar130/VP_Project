@@ -21,6 +21,7 @@ namespace VP_Ptoject
             Word = word;
             wordLetters = new HashSet<char>();
             AttemptedLetters = new HashSet<char>();
+            Misses = 0;
 
             foreach (char letter in Word.ToCharArray())
             {

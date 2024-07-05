@@ -69,13 +69,12 @@ namespace VP_Ptoject
         {
             if (tb_Attempt.Text.Length == 1)
             {
-                hangmanWord.GuessLetter(tb_Attempt.Text.ToCharArray().First());
+                hangmanWord.GuessLetter(tb_Attempt.Text.ToCharArray().First()); 
+                Invalidate();
                 if(hangmanWord.Misses == hangmanWord.MaxFailedAttempts)
                 {
                     if (MessageBox.Show("Play again?", "Game over", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        //scene = new Scene();
-                        //Invalidate();
+                    {                       
                         if (footballCategory.Checked)
                         {
                             hangmanWord = new HangmanWord(football.ElementAt(Random.Next(0, football.Length)));
@@ -90,6 +89,7 @@ namespace VP_Ptoject
                         }
                         hangmanWord.MaxFailedAttempts = maxFailedAttempts;
                         time_left = 0;
+                        Invalidate();
                         formatTime();
                         lbl_Attempts.Text = "Attempts: " + (hangmanWord.MaxFailedAttempts - hangmanWord.Misses);
 
@@ -163,26 +163,41 @@ namespace VP_Ptoject
 
         }
 
-        private void DrawHangPost()
+        private void DrawBodyPart(BodyParts bp, Graphics g)
         {
-                     
-            Pen p = new Pen(Color.Brown, 10);// use for creating the pn 
-            /**
-             * The next eight lines are for diffrent body parts that call the function "DrawBodypart()" to draw those bodyparts every time the user
-             * enters a wrong entry. 
-             */
-            DrawBodyPart(BodyParts.Head);
-            DrawBodyPart(BodyParts.Face);
-            DrawBodyPart(BodyParts.Body);
-            DrawBodyPart(BodyParts.Left_Arm);
-            DrawBodyPart(BodyParts.Right_Arm);
-            DrawBodyPart(BodyParts.Left_Leg);
-            DrawBodyPart(BodyParts.Right_Leg);
-        }
+            Pen p = new Pen(Color.Blue, 2);
+            if (bp == BodyParts.Head)//draw head
+            {
+                g.DrawEllipse(p, 484, 100, 40, 40);
+            }
+            else if (bp == BodyParts.Face)//draw face
+            {
+                SolidBrush s = new SolidBrush(Color.Black);
+                g.FillEllipse(s, 494, 110, 5, 5);
+                g.FillEllipse(s, 508, 110, 5, 5);
+                g.DrawArc(p, 494, 110, 20, 20, 45, 90);
 
-        private void DrawBodyPart(BodyParts bp)
-        {
-            throw new NotImplementedException();
+            }           
+            else if (bp == BodyParts.Body)// draw body
+            {
+                g.DrawLine(p, new Point(505, 140), new Point(505, 220));
+            }
+            else if (bp == BodyParts.Left_Arm)//draw left arm
+            {
+                g.DrawLine(p, new Point(505, 160), new Point(475, 145));
+            }
+            else if (bp == BodyParts.Right_Arm)// draw right arm
+            {
+                g.DrawLine(p, new Point(505, 160), new Point(535, 145));/// the first point is always where you start from on the body
+            }
+            else if (bp == BodyParts.Left_Leg)// darw left leg
+            {
+                g.DrawLine(p, new Point(505, 220), new Point(475, 240));
+            }
+            else if (bp == BodyParts.Right_Leg)// draw right leg
+            {
+                g.DrawLine(p, new Point(505, 220), new Point(535, 240));
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -192,6 +207,57 @@ namespace VP_Ptoject
             g.DrawLine(p, new Point(570, 290), new Point(570, 70));//draws vertical post
             g.DrawLine(p, new Point(573, 70), new Point(502, 70));// draws the horizontal post from the vertical post to where the hook is for the hangman
             g.DrawLine(p, new Point(505, 70), new Point(505, 100));//vertical hook
+
+            if (easyDifficulty.Checked)
+            {
+                if (hangmanWord.Misses >= 1) DrawBodyPart(BodyParts.Head, g);
+                if (hangmanWord.Misses >= 2) DrawBodyPart(BodyParts.Face, g);
+                if (hangmanWord.Misses >= 3) DrawBodyPart(BodyParts.Body, g);
+                if (hangmanWord.Misses >= 4) DrawBodyPart(BodyParts.Left_Arm, g);
+                if (hangmanWord.Misses >= 5) DrawBodyPart(BodyParts.Right_Arm, g);
+                if (hangmanWord.Misses >= 6) DrawBodyPart(BodyParts.Left_Leg, g);
+                if (hangmanWord.Misses >= 7) DrawBodyPart(BodyParts.Right_Leg, g);
+            }
+            if (normalDifficulty.Checked)
+            {
+                if (hangmanWord.Misses >= 1) DrawBodyPart(BodyParts.Head, g);
+                if (hangmanWord.Misses >= 2) DrawBodyPart(BodyParts.Face, g);
+                if (hangmanWord.Misses >= 3) DrawBodyPart(BodyParts.Body, g);
+                if (hangmanWord.Misses >= 4)
+                {
+                    DrawBodyPart(BodyParts.Left_Arm, g);
+                    DrawBodyPart(BodyParts.Right_Arm, g);
+                }
+                if (hangmanWord.Misses >= 5)
+                {
+                    DrawBodyPart(BodyParts.Left_Leg, g);
+                    DrawBodyPart(BodyParts.Right_Leg, g);
+                }            
+            }
+            if (hardDifficulty.Checked)
+            {
+                if (hangmanWord.Misses >= 1)
+                {
+                    DrawBodyPart(BodyParts.Head, g);
+                    DrawBodyPart(BodyParts.Face, g);
+                    DrawBodyPart(BodyParts.Body, g);
+                }
+                if (hangmanWord.Misses >= 2)
+                {
+                    DrawBodyPart(BodyParts.Left_Arm, g);
+                    DrawBodyPart(BodyParts.Right_Arm, g);
+                }
+                if (hangmanWord.Misses >= 3)
+                {
+                    DrawBodyPart(BodyParts.Left_Leg, g);
+                    DrawBodyPart(BodyParts.Right_Leg, g);
+                }
+            }
+            
+
+
+            
+
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
