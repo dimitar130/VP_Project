@@ -55,6 +55,35 @@ namespace VP_Ptoject
             int sec = tmp % 60;
             if (min == 0 && sec <= 20) lbl_Time.ForeColor = Color.Red;
             lbl_Time.Text = String.Format("{0:00}:{1:00}", min, sec);
+            if (tmp == 0) GameOver();
+        }
+
+        private void GameOver()
+        {
+            timer1.Stop();
+            if (MessageBox.Show("Play again?", "Game over", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                timer1.Start();
+                if (footballCategory.Checked)
+                {
+                    hangmanWord = new HangmanWord(football.ElementAt(Random.Next(0, football.Length)));
+                }
+                else if (artCategory.Checked)
+                {
+                    hangmanWord = new HangmanWord(art.ElementAt(Random.Next(0, art.Length)));
+                }
+                else
+                {
+                    hangmanWord = new HangmanWord(country.ElementAt(Random.Next(0, country.Length)));
+                }
+                hangmanWord.MaxFailedAttempts = maxFailedAttempts;
+                time_left = 0;
+                Invalidate();
+                formatTime();
+                lbl_Time.ForeColor = Color.Black;
+                lbl_Attempts.Text = "Attempts: " + (hangmanWord.MaxFailedAttempts - hangmanWord.Misses);
+
+            }
         }
 
         private void btn_Start_Click(object sender, EventArgs e)
@@ -73,27 +102,7 @@ namespace VP_Ptoject
                 Invalidate();
                 if(hangmanWord.Misses == hangmanWord.MaxFailedAttempts)
                 {
-                    if (MessageBox.Show("Play again?", "Game over", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {                       
-                        if (footballCategory.Checked)
-                        {
-                            hangmanWord = new HangmanWord(football.ElementAt(Random.Next(0, football.Length)));
-                        }
-                        else if (artCategory.Checked)
-                        {
-                            hangmanWord = new HangmanWord(art.ElementAt(Random.Next(0, art.Length)));
-                        }
-                        else
-                        {
-                            hangmanWord = new HangmanWord(country.ElementAt(Random.Next(0, country.Length)));
-                        }
-                        hangmanWord.MaxFailedAttempts = maxFailedAttempts;
-                        time_left = 0;
-                        Invalidate();
-                        formatTime();
-                        lbl_Attempts.Text = "Attempts: " + (hangmanWord.MaxFailedAttempts - hangmanWord.Misses);
-
-                    }
+                    GameOver();
                 }
                 lbl_Word.Text = hangmanWord.UpdateWordState();
                 lbl_AllLeters.Text = hangmanWord.UpdateAlphabet();
